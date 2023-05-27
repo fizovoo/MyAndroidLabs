@@ -12,19 +12,53 @@
         android:layout_height="wrap_content"
         android:text="@string/hello_message"/>
 
-    <Button
-        android:id="@+id/button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="50dp"
-        android:text="@string/button_message" />
-    
     <EditText
         android:id="@+id/myEdit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/edit_message"
         android:hint="@string/hint_text"/>
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="50dp"
+        android:text="@string/button_message" />
+
+    <CheckBox
+        android:id="@+id/checkBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/checkBox_message" />
+
+    <Switch
+        android:id="@+id/switchButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/switch_message" />
+
+    <RadioButton
+        android:id="@+id/radioButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/radioButton_message" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:src="@drawable/algonquin300x169"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <ImageButton
+        android:id="@+id/imageButton"
+        android:src="@drawable/algonquin300x169"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    
+
+
+
 
 </LinearLayout>
 
