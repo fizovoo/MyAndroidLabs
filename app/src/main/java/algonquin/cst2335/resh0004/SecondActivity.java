@@ -90,7 +90,6 @@ public class SecondActivity extends AppCompatActivity {
                                 super.onPause();
                                 SharedPreferences pref = getSharedPreferences("MyData", Context.MODE_PRIVATE);
                                 SharedPreferences.Editor editor = pref.edit();
-                                editor.putString("LoginName",emailAddress);
                                 editor.putString("savedNumber", variableBinding.editTextPhone.getText().toString());
                                 editor.apply();
                             }
