@@ -79,7 +79,6 @@ public class SecondActivity extends AppCompatActivity {
 
                 });
 
-
         variableBinding.button2.setOnClickListener(clk -> {
             cameraResult.launch(cameraIntent);
         });
