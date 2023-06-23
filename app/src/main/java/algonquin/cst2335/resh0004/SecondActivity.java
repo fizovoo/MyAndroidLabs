@@ -84,7 +84,6 @@ public class SecondActivity extends AppCompatActivity {
             cameraResult.launch(cameraIntent);
         });
     }
-
                             @Override
                             protected void onPause () {
                                 super.onPause();
