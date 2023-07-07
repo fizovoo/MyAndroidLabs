@@ -16,52 +16,32 @@ import android.widget.Toast;
  * @version 1.0
  */
 public class MainActivity extends AppCompatActivity {
-
-    /**
-     * This variable checks if an upper case letter exists in the password or not
-     */
-    private boolean foundUpperCase = false;
-    /**
-     * This variable checks if a lower case letter exists in the password or not
-     */
-    private boolean foundLowerCase = false;
-    /**
-     * This variable checks if a number exists in the password or not
-     */
-    private boolean foundNumber = false;
-    /**
-     * This variable checks if a special character was found in the password or not
-     */
-    private boolean foundSpecial = false;
-    /**
-     * The context object used for displaying Toast messages
-     */
     private Context context = this;
     /**
      * This holds the text at the centre of the screen
      */
-     private TextView tv = findViewById(R.id.textView);
+     private  TextView tv = null;
     /**
      * This holds the password that is to be typed
      */
-    private EditText et = findViewById(R.id.editText);
+    private  EditText et = null;
     /**
      * This holds the login button that is to be clicked
      */
-    private Button btn = findViewById(R.id.button);
+     private Button btn = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+         tv = findViewById(R.id.textView);
+         et = findViewById(R.id.editText);
+        btn = findViewById(R.id.button);
+
         btn.setOnClickListener(clk -> {
             String password = et.getText().toString();
-            boolean passwordComplexityMet = checkPasswordComplexity(password);
-            if (passwordComplexityMet) {
-                tv.setText("Your password meets the requirements");
-            } else {
-                tv.setText("You shall not pass!");
-            }
+            checkPasswordComplexity(password);
 
         });
     }
@@ -74,6 +54,9 @@ public class MainActivity extends AppCompatActivity {
      * @return Returns true if the password is complex enough and false otherwise.
      */
     boolean checkPasswordComplexity(String pw) {
+        boolean foundUpperCase, foundLowerCase, foundNumber, foundSpecial;
+        foundUpperCase = foundLowerCase = foundNumber = foundSpecial = false;
+
         for (char c : pw.toCharArray()) {
             if (Character.isUpperCase(c)) {
                 foundUpperCase = true;
@@ -87,28 +70,30 @@ public class MainActivity extends AppCompatActivity {
         }
 
         if (!foundUpperCase) {
+            tv.setText("You shall not pass");
             Toast.makeText(context, "Upper case character missing", Toast.LENGTH_SHORT).show();
             return false;
         } else if (!foundLowerCase) {
+            tv.setText("You shall not pass");
             Toast.makeText(context, "Lower case character missing", Toast.LENGTH_SHORT).show();
             return false;
         } else if (!foundNumber) {
+            tv.setText("You shall not pass");
             Toast.makeText(context, "Number missing", Toast.LENGTH_SHORT).show();
             return false;
         } else if (!foundSpecial) {
+            tv.setText("You shall not pass");
             Toast.makeText(context, "Special character missing", Toast.LENGTH_SHORT).show();
             return false;
-        }
-
+        } else
+            tv.setText("Your password meets the requirements");
         return true;
     }
 
-
-    /** This function checks if the special character is one of the following #$%^&*!@? and if not
-         * will return false.
+    /** This function checks if the special character in the password and if not will return false.
          *
          * @param c the char object that we are checking
-         * @return will return true if c is one of: #$%^&*!@? otherwise false
+         * @return will return true if c is a special character otherwise false
          */
         boolean isSpecialCharacter(char c)
         {
