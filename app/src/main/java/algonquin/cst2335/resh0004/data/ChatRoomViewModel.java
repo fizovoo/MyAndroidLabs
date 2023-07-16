@@ -8,5 +8,5 @@ import java.util.ArrayList;
 import algonquin.cst2335.resh0004.ChatMessage;
 
 public class ChatRoomViewModel extends ViewModel {
-    public ArrayList<ChatMessage> messages = new ArrayList<>();
+    public MutableLiveData<ArrayList<ChatMessage>> messages = new MutableLiveData<>();
 }
